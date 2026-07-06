@@ -2,6 +2,18 @@ from flask import Flask, render_template, request
 import pickle
 import requests
 
+import os
+import gdown
+
+FOLDER_URL = "https://drive.google.com/drive/folders/1zU8e8AkszHP7IG_K9gpRIWRiWXgUCwjX"
+
+if not os.path.exists("similiarity.pkl"):
+    gdown.download_folder(
+        url=FOLDER_URL,
+        output=".",
+        quiet=False
+    )
+
 app = Flask(__name__)
 
 movies = pickle.load(open("movies.pkl", "rb"))
