@@ -5,21 +5,20 @@ import requests
 import os
 import gdown
 
-FOLDER_URL = "https://drive.google.com/drive/folders/1zU8e8AkszHP7IG_K9gpRIWRiWXgUCwjX"
+FILE_ID = "1-k1vzgLLcA5vmryX-OvHPAj1eootIjhc"
+OUTPUT = "similiarity.pkl"
 
-if not os.path.exists("similiarity.pkl"):
-    gdown.download_folder(
-        url=FOLDER_URL,
-        output=".",
-        quiet=False
-    )
+if not os.path.exists(OUTPUT):
+    url = f"https://drive.google.com/uc?id={FILE_ID}"
+    gdown.download(url, OUTPUT, quiet=False, fuzzy=True)
 
 app = Flask(__name__)
 
 movies = pickle.load(open("movies.pkl", "rb"))
 similarity = pickle.load(open("similiarity.pkl", "rb"))
 
-API_KEY = "82482b695f7c868afac954cb7ed65715"
+API_KEY = os.getenv("82482b695f7c868afac954cb7ed65715")
+
 
 
 def fetch_poster(movie_id):
