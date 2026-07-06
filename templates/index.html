@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎬 Movie Recommendation System</h1>
+
+    <p class="subtitle">
+        Find your next favorite movie instantly
+    </p>
+
+    <form method="POST">
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search Movie">
+
+        <select id="movieSelect" name="movie">
+
+            {% for movie in movie_list %}
+            <option value="{{movie}}">{{movie}}</option>
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">
+            Show Recommendation
+        </button>
+
+    </form>
+
+    {% if recommended_movies %}
+
+    <h2 class="heading">Recommended Movies</h2>
+
+    <div class="movies">
+
+        {% for i in range(5) %}
+
+        <div class="card">
+
+            <img src="{{recommended_posters[i]}}">
+
+            <h3>{{recommended_movies[i]}}</h3>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
