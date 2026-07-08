@@ -220,13 +220,15 @@ streamlit run app.py
 
 ## Home Page
 
-> Add your screenshot here
+<img width="979" height="482" alt="fffe" src="https://github.com/user-attachments/assets/995b2f05-81d7-4115-b18e-5b137f89c039" />
+
 
 ---
 
 ## Recommendation Result
 
-> Add your screenshot here
+<img width="835" height="702" alt="streamli2" src="https://github.com/user-attachments/assets/ff951cef-7965-49c0-bfea-ebe6d3426780" />
+
 
 ---
 
